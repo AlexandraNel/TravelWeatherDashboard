@@ -1,0 +1,19 @@
+/* Using custome css for teh gradient in the header */
+.header-gradient {
+    background: linear-gradient(90deg, #0d6efd, #001c46);
+}
+
+.footer-gradient {
+    background: linear-gradient(90deg, #001c46, #0d6efd);
+}
+
+/* using custome css to make teh border on the input area darker ie black */
+.black-border {
+    border: 1px solid black;
+}
+
+/* making my footer icon a bit bigger */
+.footer-icon {
+    width: 30px;
+    height: auto;
+}
