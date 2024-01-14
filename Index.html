@@ -30,13 +30,13 @@
 
             <!-- This is the area that the user will input their city name -->
             <div class="input-group input-group-lg mb-3 ">
-                <input type="text" class="form-control black-border" placeholder="City Name" aria-label="City Name"
+                <input type="text" id="cityName" class="form-control black-border" placeholder="City Name" aria-label="City Name"
                     aria-describedby="Input for Search City">
             </div>
             <!-- This is the search button, this btn lives inside a div in order to get it to be a 'block button', 
             and therefore fill the container width -->
             <div class="d-grid gap-2">
-            <button type="button" class="btn btn-primary fw-bold">Search</button>
+            <button type="button" class="search-btn btn btn-primary fw-bold">Search</button>
         </div>
 
         <!-- using hr html to break between our input and the local storage display items -->
@@ -50,9 +50,9 @@
             <!-- this is where our current forcast will appear -->
             <div class="border border-black row m-4 p-4">
                 <h2><strong>Placeholder Header</strong></h2>
-                <p>Temp:</p>
-                <p>Wind:</p>
-                <p>Humidity:</p>
+                <p id="currentTemp">Temp:</p>
+                <p id="currentWind">Wind:</p>
+                <p id="currentHumidity">Humidity:</p>
             </div>
 
             <!-- this is where our 5 day forcast will appear- within each list item a new day will be populated -->
@@ -61,11 +61,11 @@
                 <ul class="list-unstyled d-flex justify-content-between">
                     <!-- each list item has a margin of 2 to the right except for the last item as it can sit flush with
                     the right hand side- this creates space between each item -->
-                    <li class="px-3 me-2 flex-fill text-bg-dark">Day 01</li>
-                    <li class="px-3 me-2 flex-fill text-bg-dark">Day 02</li>
-                    <li class="px-3 me-2 flex-fill text-bg-dark">Day 03</li>
-                    <li class="px-3 me-2 flex-fill text-bg-dark">Day 04</li>
-                    <li class="px-3 flex-fill text-bg-dark">Day 05</li>
+                    <li id= "day01" class="px-3 me-2 flex-fill text-bg-dark">Day 01</li>
+                    <li id= "day02" class="px-3 me-2 flex-fill text-bg-dark">Day 02</li>
+                    <li id= "day03" class="px-3 me-2 flex-fill text-bg-dark">Day 03</li>
+                    <li id= "day04" class="px-3 me-2 flex-fill text-bg-dark">Day 04</li>
+                    <li id= "day05" class="px-3 flex-fill text-bg-dark">Day 05</li>
                 </ul>
             </div>
 
