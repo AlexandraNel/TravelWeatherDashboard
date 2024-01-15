@@ -5,6 +5,7 @@ var cityName = document.getElementById("cityName");
 var currentTemp = document.getElementById("currentTemp");
 var currentWind = document.getElementById("currentWind");
 var currentHumidity = document.getElementById("currentHumidity");
+var locationHeader = document.getElementById("locationHeader");
 // API key required for access
 var APIKey = "1469a0fc17dbb9a6e1b4cc2b019e6b33";
 
@@ -28,16 +29,17 @@ function getApiCurrent() {
         return; //writing return will stop the api from returning the data if it is written incorrectly
     }
 
-
     // In order to recieve the correct CITY in the correct COUNTRY we will split the user input data
     //noting that the input having 2 values, separated by a comma has already been qualified in the inputAlert function
     var userInput = cityName.value.split(",")
     city = userInput[0].trim();
     country = userInput[1].trim();
 
-    countryCode= countryList.code(country);
-    if (!countryCode){
+    countryCode = countryList.code(country);
+    // handles if the incorrect city is entered ie. it does not exist. returns after so that incorrect city is not displayed
+    if (!countryCode) {
         window.alert("Please enter a valid Country")
+        return
     }
 
     //concatenating our user input, API key and required parameters to query url
@@ -45,19 +47,31 @@ function getApiCurrent() {
 
     fetch(queryURL)
         .then(function (response) {
-            return response.json();
+            if (response.ok) {
+                return response.json();
+                // handles if the incorrect city is entered ie. it does not exist
+            } else { alert("Please enter a valid city"); }
+
         })
+
         .then(function (data) {
             console.log(data) //to check through the data that we have recieved in the response- can be removed
 
             // creating variables with the recieved data from the geo location- this api uses longitude and latitude
+            //we need to pass this data through to our 5 day forecast which we will do at the end of this function
             var lat = data.coord.lat;
             var lon = data.coord.lon;
 
-            // here we are setting the text content of our elements (declared at the top of our script) to the data we have 
-            // recieved from the API and creating the string to be added to that element id
+            // grabbing the date which is in unix and converting it for use in a variable
+            var unixTimestamp= data.dt;
+            var dateConvert= new Date(unixTimestamp*1000);
+            var date = dateConvert.toLocaleDateString("en-GB");
+         
+            // here we are filling the text content of our elements (declared at the top of our script) to the data we have 
+            // recieved from the API. We create a new span element in order to style it differently and dynamically using 
+            //bootstrap class as well as replace the title 'Your Location' with the current area displayed
 
-            // I want the recieved data to have a different class than the title 'ie Temp:'
+            locationHeader.innerHTML = (city + ", " + country + ". " + date);
 
             var spanTemp = document.createElement("span"); //dynamically create a span element for the response data
             spanTemp.textContent = data.main.temp + " \u00B0C"; //unicode for the degree symbol added here to the text Content recieved
@@ -77,39 +91,52 @@ function getApiCurrent() {
             currentHumidity.innerHTML = "Humidity: ";
             currentHumidity.appendChild(spanHumidity);
 
-            // Now we call our forecast function for the next 5 days, using those local latitude, longitude, and city parameters
-            //The API documentation calls for this info for longer term forecasts 
-            getApiForecast(lat, lon, city);
+            // Because the 5 day forecast requires longitude and latitude location data, we have captured it within variables
+            //These variables are now being passed to our getApiForecast function
+            getApiForecast(lat, lon);
         })
 };
 
-function getApiForecast(lat, lon, city) {
+function getApiForecast(lat, lon) {
 
-    //concatenating our user input, API key and required parameters to query url
-    var queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+    //concatenating our user input, API key and required parameters to query url, using lon and lat data from previous funtion
+    var daysQueryUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&units=metric";
 
-    fetch(queryURL)
+    fetch(daysQueryUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            console.log("data = ", data);
+            console.log("data = ", data); //console logging data with title 'data=' can be removed- for my own benefit
 
-            // currentTemp.textContent= `Temp: ${data.main.temp} \u00B0C`
-            // currentWind.textContent= `Wind: ${data.wind.speed} KPH`
-            // currentHumidity.textContent= `Humidity: ${data.main.humidity} %`
+            // response returns 40 objects within an array (8 results for 5days).
+            // I want the 12pm forecast of each day, loop at [2] which is 12pm today. 
+            // Increments in 8's so i have i have writte i+=8 to get each days 12 noon.
+            
+            for (var i = 2; i < data.list.length; i += 8) {
 
-            for (var i = 0; i < data.list.length; i++) {
-                if (i % 8 === 0) {
-                    //create element
-                    //assign list.ie temp --- list.ie wind [i]
-                }
+
+
+                //create element
+                //assign list.ie temp --- list.ie wind [i]
             }
+    //     }
+
+    //         var spanTemp = document.createElement("span"); //dynamically create a span element for the response data
+    // spanTemp.textContent = data.main.temp + " \u00B0C"; //unicode for the degree symbol added here to the text Content recieved
+    // spanTemp.classList.add("text-primary"); //adding a boostrap class to our new text content for the aesthetic value
+    // currentTemp.innerHTML = "Temp: "; //making sure the HTML is clear with only 'Temp:' inside it
+    // currentTemp.appendChild(spanTemp); //adding our new shiny, colourful span element containing the temp data from the API
+
+    // //             // currentTemp.textContent= `Temp: ${data.main.temp} \u00B0C`
+    // //             // currentWind.textContent= `Wind: ${data.wind.speed} KPH`
+    // //             // currentHumidity.textContent= `Humidity: ${data.main.humidity} %`
 
 
 
 
-        })
+
+})
 }
 
 

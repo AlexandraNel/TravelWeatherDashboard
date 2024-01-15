@@ -27,21 +27,22 @@
         <!-- this is where our search column will be on the left side of the page -->
         <div class="col-3 p-4 bg-light">
             <h2><strong>Search for a Location:</h2></strong>
-            <p>Type the <strong>City Name</strong> <br> Separated by a <strong>comma ,</strong> <br> Followed by the <strong>Country Name</strong></p>
+            <p>Type the <strong>City Name</strong> <br> Separated by a <strong>comma ,</strong> <br> Followed by the
+                <strong>Country Name</strong></p>
 
             <!-- This is the area that the user will input their city name -->
             <div class="input-group input-group-lg mb-3 ">
-                <input type="text" id="cityName" class="form-control black-border" placeholder="City Name, Country Name" aria-label="City Name"
-                    aria-describedby="Input for Search City">
+                <input type="text" id="cityName" class="form-control black-border" placeholder="City Name, Country Name"
+                    aria-label="City Name" aria-describedby="Input for Search City">
             </div>
             <!-- This is the search button, this btn lives inside a div in order to get it to be a 'block button', 
             and therefore fill the container width -->
             <div class="d-grid gap-2">
-            <button type="button" class="search-btn btn btn-primary fw-bold">Search</button>
-        </div>
+                <button type="button" class="search-btn btn btn-primary fw-bold">Search</button>
+            </div>
 
-        <!-- using hr html to break between our input and the local storage display items -->
-        <hr>
+            <!-- using hr html to break between our input and the local storage display items -->
+            <hr>
 
         </div>
 
@@ -50,7 +51,7 @@
 
             <!-- this is where our current forcast will appear -->
             <div class="border border-black row m-4 p-4">
-                <h2><strong>Your Location</strong></h2>
+                <h2 class="text-primary" id="locationHeader">Your Location</h2>
                 <h5 id="currentTemp">Temp: </h5>
                 <h5 id="currentWind">Wind: </h5>
                 <h5 id="currentHumidity">Humidity:</h5>
@@ -62,11 +63,11 @@
                 <ul class="list-unstyled d-flex justify-content-between">
                     <!-- each list item has a margin of 2 to the right except for the last item as it can sit flush with
                     the right hand side- this creates space between each item -->
-                    <li id= "day01" class="px-3 me-2 flex-fill text-bg-dark">Day 01</li>
-                    <li id= "day02" class="px-3 me-2 flex-fill text-bg-dark">Day 02</li>
-                    <li id= "day03" class="px-3 me-2 flex-fill text-bg-dark">Day 03</li>
-                    <li id= "day04" class="px-3 me-2 flex-fill text-bg-dark">Day 04</li>
-                    <li id= "day05" class="px-3 flex-fill text-bg-dark">Day 05</li>
+                    <li id="day01" class="px-3 me-2 flex-fill text-bg-dark">Day 01</li>
+                    <li id="day02" class="px-3 me-2 flex-fill text-bg-dark">Day 02</li>
+                    <li id="day03" class="px-3 me-2 flex-fill text-bg-dark">Day 03</li>
+                    <li id="day04" class="px-3 me-2 flex-fill text-bg-dark">Day 04</li>
+                    <li id="day05" class="px-3 flex-fill text-bg-dark">Day 05</li>
                 </ul>
             </div>
 
