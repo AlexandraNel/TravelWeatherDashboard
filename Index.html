@@ -26,11 +26,12 @@
     <main class="row">
         <!-- this is where our search column will be on the left side of the page -->
         <div class="col-3 p-4 bg-light">
-            <h2><strong>Search for a City:</h2></strong>
+            <h2><strong>Search for a Location:</h2></strong>
+            <p>Type the <strong>City Name</strong> <br> Separated by a <strong>comma ,</strong> <br> Followed by the <strong>Country Name</strong></p>
 
             <!-- This is the area that the user will input their city name -->
             <div class="input-group input-group-lg mb-3 ">
-                <input type="text" id="cityName" class="form-control black-border" placeholder="City Name" aria-label="City Name"
+                <input type="text" id="cityName" class="form-control black-border" placeholder="City Name, Country Name" aria-label="City Name"
                     aria-describedby="Input for Search City">
             </div>
             <!-- This is the search button, this btn lives inside a div in order to get it to be a 'block button', 
@@ -49,10 +50,10 @@
 
             <!-- this is where our current forcast will appear -->
             <div class="border border-black row m-4 p-4">
-                <h2><strong>Placeholder Header</strong></h2>
-                <p id="currentTemp">Temp:</p>
-                <p id="currentWind">Wind:</p>
-                <p id="currentHumidity">Humidity:</p>
+                <h2><strong>Your Location</strong></h2>
+                <h5 id="currentTemp">Temp: </h5>
+                <h5 id="currentWind">Wind: </h5>
+                <h5 id="currentHumidity">Humidity:</h5>
             </div>
 
             <!-- this is where our 5 day forcast will appear- within each list item a new day will be populated -->
@@ -78,7 +79,10 @@
         <img src="./Assets/favicon.ico" alt="Footer Icon" class="footer-icon">
     </footer>
 
+    <!-- Added script tag to link bootstrap functions -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Added script tag to link ISO 3166 country code library- required in the Open Weather API, used to get accurate data in the app -->
+    <script src="https://cdn.jsdelivr.net/npm/iso-3166-country-list@0.2.0/country-list.min.js"></script>
     <script src="./Assets/script.js"></script>
 </body>
 
