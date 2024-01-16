@@ -28,19 +28,20 @@ This application was an activity in allowing me to explore the application serve
 
 Website has been deployed and is available from this link:
 
-[Travel Weather Dashboard](https://alexandranel.github.io/WorkdaySchedule/)
+[Travel Weather Dashboard](https://alexandranel.github.io/TravelWeatherDashboard/)
 
 Full repository can be accessed here:
 
-[Git Repository](https://github.com/AlexandraNel/WorkdaySchedule)
+[Git Repository](https://github.com/AlexandraNel/TravelWeatherDashboard)
 
 ``````
 To view repo contents please navigate to the above link there you will find
 - assets folder
-    - gif
+    - jpg
     - License
+    - Favicon
     - script.js
-    - Style.css
+    - style.css
 - README.md
 - index.html
 
