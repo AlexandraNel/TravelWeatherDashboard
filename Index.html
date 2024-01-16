@@ -28,7 +28,8 @@
         <div class="col-3 p-4 bg-light">
             <h2><strong>Search for a Location:</h2></strong>
             <p>Type the <strong>City Name</strong> <br> Separated by a <strong>comma ,</strong> <br> Followed by the
-                <strong>Country Name</strong></p>
+                <strong>Country Name</strong>
+            </p>
 
             <!-- This is the area that the user will input their city name -->
             <div class="input-group input-group-lg mb-3 ">
@@ -37,8 +38,11 @@
             </div>
             <!-- This is the search button, this btn lives inside a div in order to get it to be a 'block button', 
             and therefore fill the container width -->
-            <div class="d-grid gap-2">
+            <div class="d-grid gap-2 mb-3">
                 <button type="button" class="search-btn btn btn-primary fw-bold">Search</button>
+            </div>
+
+            <div id="search-bar" class="d-grid gap-2">
             </div>
 
             <!-- using hr html to break between our input and the local storage display items -->
@@ -63,11 +67,11 @@
                 <ul class="list-unstyled d-flex justify-content-between">
                     <!-- each list item has a margin of 2 to the right except for the last item as it can sit flush with
                     the right hand side- this creates space between each item -->
-                    <li id="day01" class="px-3 me-2 flex-fill text-bg-dark">Day 01</li>
-                    <li id="day02" class="px-3 me-2 flex-fill text-bg-dark">Day 02</li>
-                    <li id="day03" class="px-3 me-2 flex-fill text-bg-dark">Day 03</li>
-                    <li id="day04" class="px-3 me-2 flex-fill text-bg-dark">Day 04</li>
-                    <li id="day05" class="px-3 flex-fill text-bg-dark">Day 05</li>
+                    <li class="forecast-day px-3 me-2 flex-fill list-group-item list-group-item-primary">Day 01</li>
+                    <li class="forecast-day px-3 me-2 flex-fill list-group-item list-group-item-primary">Day 02</li>
+                    <li class="forecast-day px-3 me-2 flex-fill list-group-item list-group-item-primary">Day 03</li>
+                    <li class="forecast-day px-3 me-2 flex-fill list-group-item list-group-item-primary">Day 04</li>
+                    <li class="forecast-day px-3 flex-fill list-group-item list-group-item-primary">Day 05</li>
                 </ul>
             </div>
 
