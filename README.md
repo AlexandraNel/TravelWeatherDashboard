@@ -49,8 +49,7 @@ To view repo contents please navigate to the above link there you will find
 
 ## Usage
 
-This website was constructed in an effort to improve jquery and dayjs knowledge
-Its usage is of a simple 9-5, daily scheduler.
+This website was constructed in an effort to improve my knowledge of javascript and server-side API's
 
 ## Support
 
@@ -61,8 +60,8 @@ info@alexandranel.com
 
 Moving forward the following improvements can be made
 
-- Design can be imrpoved by extending the css stylesheets
-- Daily tasks can be saved to a server in order to retrieve yearly progress reports
+- Limit the amount of saved results to only 7 
+- Add some favicon icons for aesthetic value
 
 ## Authors and Acknowledgment
 
@@ -70,7 +69,8 @@ This website was made under the guidance and with assistance from
 - the team at MONASH UNI full Stack Dev Bootcamp
 - Instructor Chee Ho Tai
 - TA Pranita Shrestha
-- Tutor Weng Fei Fung 
+- Tutor Suresh S Kumar
+- chatGPT programmed to be a personal tutor 
 
 ## Licence
 MIT License
